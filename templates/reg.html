@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+
+{% block content %}
+<!-- <link rel="stylesheet" href="/static/css/new.css"> -->
+
+<div class="jumbotron">
+    {% if registered %}
+    <h1>Thank you for registering !</h1>
+    {% else %}
+
+    <h1>Register HERE</h1>
+    <h2>Fill out the Form:</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form.as_p}}
+        {{ profile_form.as_p}}
+
+        <input type="submit" name="" value="Register">
+
+    </form>
+
+    {% endif %}
+{% endblock content %}
+</div>
